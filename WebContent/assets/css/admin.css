@@ -1039,7 +1039,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
 	outline: 0;
 	padding: 0 1em;
 	text-decoration: none;
-	width: 100%;
+	/* width: 100%; */
 }
 
 input[type="text"]:invalid, input[type="password"]:invalid, input[type="email"]:invalid,
@@ -1318,6 +1318,35 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	display: inline-block;
+}
+
+#search-form{
+	display: inline-block;
+}
+
+#signup-sub div {
+	float: left;
+	display: inline-block;
+}
+
+#signup-sub label {
+    float: left;
+    display: inline-block;
+}
+
+#search-form div {
+	float: left;
+	display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+
+
+#signup-sub div a {
+	float: left;
+	
 }
 
 #signup-form div a {

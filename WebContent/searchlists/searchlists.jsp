@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>택배비 계산기 | Daum 지도 시작하기</title>
+<title>택배비 계산기 | 계산 결과</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="../assets/css/searchlists.css" />
@@ -16,18 +16,26 @@
 			
 		}
 	});
+	
+	window.addEventListener("load", function() {
+		var logo = document.querySelector("#logo");
+		logo.onclick = function() {
+			open("../index.jsp","_self");
+		}
+	});
 </script>
-<script src="../assets/js/common.js"></script>
 </head>
 <body>
 
 	<!-- Header -->
 	<header id="header">
-		<!-- <h1 id="logo">
-				편의점택배
-		</h1> -->
+	<div id="header-logo">
+			<img id="logo" src="../images/logofinal.png" alt="" class="header-logo" style="cursor: pointer;"/>
+		</div>
 	</header>
-	<h1>편의점택배</h1>
+	<div id="resultmain" style="	margin-top: 100px;">
+		<h1 id="resultpage">편의점택배</h1>
+	</div>
 	<div id="close-div">
 		<input id="map-button" type="submit" value="가까운 지점 찾기" />
 	</div>
@@ -58,6 +66,90 @@
 					<td>2016-06-30</td>
 					<td>854</td>
 				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
+				<tr>
+					<td>43</td>
+					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
+					<td>admin</td>
+					<td>2016-06-30</td>
+					<td>854</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -73,8 +165,6 @@
 		</ul>
 	</footer>
 	<!-- Scripts -->
-	
-
-
+	<script src="../assets/js/searchlists.js"></script>
 </body>
 </html>

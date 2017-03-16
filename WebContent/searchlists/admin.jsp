@@ -8,30 +8,38 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="../assets/css/admin.css" />
+<script>
+	window.addEventListener("load", function() {
+		var logo = document.querySelector("#logo");
+		logo.onclick = function() {
+			open("../index.jsp","_self");
+		}
+	});
+</script>
 </head>
 <body>
-
-	
-	
 
 	<!-- Header -->
 	<header id="header">
 		<div id="header-logo">
-			<img src="../images/logofinal.png" alt="" class="header-logo" />
+			<img id="logo" src="../images/logofinal.png" alt="" class="header-logo" style="cursor: pointer;"/>
 		</div>
 	</header>
 	<div id="adminmain" style="	margin-top: 100px;">
-		<h1 id="admin">관리자페이지!!</h1>
+		<h1 id="admin">관리자페이지</h1>
 	</div>
+	
 	<div id="signup-sub" >
-		<div>
-			<a>회사명: </a>
-			<input type="text" value="" />
-		</div>
-		<div>
-			<input type="submit" value="검색" />
-		</div>
+		<form id="search-form">
+			<div class="form-group">
+				<label>회사명: </label><input type="text" value="" />
+			</div>
+			<div>
+				<input type="submit" value="검색" />
+			</div>
+		</form>
 	</div>
+	
 	<div class="notice margin">
 		<h3 class="hidden">공지목록</h3>
 		<table class="table notice-table">

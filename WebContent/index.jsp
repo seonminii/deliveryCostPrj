@@ -82,7 +82,7 @@
 	<!-- layer -->
 	<div id="layer">
 	  <div class="content">
-	  <div id="close" onclick="setVisibility('layer','none');"><h3>x</h3></div>
+	  <div id="close" onclick="setVisibility('layer','none');" style="cursor: pointer;"><h3>x</h3></div>
 		<h2>관리자 로그인</h2>
 		<!-- 안보이게 -->
 		 <section class="container">
