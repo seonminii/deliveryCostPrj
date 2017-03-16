@@ -57,18 +57,56 @@
 		</div>
 	</form>
 
-	<!-- Footer -->
+	<!-------- Footer -------->
 	<footer id="footer">
 		<ul class="copyright">
-			<li><a href="">Manager ver.</a></li>
-			<li>Credits: <a href="http://blog.naver.com/k_seonmin">SM
-					LAB.</a></li>
+	<!-----클릭시 보여주기 ----->
+	
+	<li><a href="#" onclick="setVisibility('layer', 'inline');">Manager ver.</a></li>
+	<li>Credits: <a href="http://blog.naver.com/k_seonmin">SM
+			LAB.</a></li>
 		</ul>
 	</footer>
 
 	<!-- Scripts -->
 	<script src="assets/js/common.js"></script>
 	<script src="assets/js/main.js"></script>
+	
+	<!-- ---js 클릭시 보여주기 --- -->
+	<script language="JavaScript">
+		function setVisibility(id, visibility) {
+			document.getElementById(id).style.display = visibility;
+		}
+	</script>
+	
+	<!-- layer -->
+	<div id="layer">
+	  <div class="content">
+	  <div id="close" onclick="setVisibility('layer','none');"><h3>x</h3></div>
+		<h2>관리자 로그인</h2>
+		<!-- 안보이게 -->
+		 <section class="container">
+		    <div class="login">
+		       <form method="post" action="index.jsp">
+		        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
+		        <p><input type="password" name="password" value="" placeholder="Password"></p>
+		        <p class="remember_me">
+		          <label>
+		            <input type="checkbox" name="remember_me" id="remember_me">
+		            Remember me on this computer
+		          </label>
+		        </p>
+		        <p class="submit"><input type="submit" name="commit" value="Login"></p>
+		      </form>
+		    </div>
+
+		    <div class="login-help">
+		      <p>Forgot your password? <a href="index.jsp">Click here to reset it</a>.</p>
+		    </div>
+		  </section>
+	  </div>
+	 <span class="blank"></span>
+	</div>
 
 </body>
 </html>
