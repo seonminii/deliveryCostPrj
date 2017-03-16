@@ -11,7 +11,8 @@
 </head>
 <body>
 
-
+	
+	
 
 	<!-- Header -->
 	<header id="header">
@@ -20,7 +21,7 @@
 		</div>
 	</header>
 	<div id="adminmain" style="	margin-top: 100px;">
-		<h1 id="admin">관리자페이지</h1>
+		<h1 id="admin">관리자페이지!!</h1>
 	</div>
 	<div id="signup-sub" >
 		<div>
