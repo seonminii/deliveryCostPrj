@@ -1,5 +1,19 @@
+<%@page import="com.sunDelivery.web.data.entity.Parcel"%>
+<%@page import="java.util.List"%>
+<%@page import="com.sunDelivery.web.data.dao.ParcelDao"%>
+<%@page import="com.sunDelivery.web.dao.mysql.MySQLParcelDao" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%
+	int pg = 1;
+	String field = "COMPANY";
+	String query = "";
+	
+	
+	ParcelDao parceldao = new MySQLParcelDao();
+	List<Parcel> list = parceldao.getList(pg,field,query);
+	System.out.println(list.size());
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,172 +36,79 @@
 	<!-- Header -->
 	<header id="header">
 		<div id="header-logo">
-			<img id="logo" src="../images/logofinal.png" alt="" class="header-logo" style="cursor: pointer;"/>
+			<img id="logo" src="../images/logofinal.png" alt=""
+				class="header-logo" style="cursor: pointer;" />
 		</div>
 	</header>
-	<div id="adminmain" style="	margin-top: 100px;">
+	<div id="adminmain" style="margin-top: 100px;">
 		<h1 id="admin">관리자페이지</h1>
 	</div>
-	
-	<div id="signup-sub" >
-		<form id="search-form">
+
+	<of id="signup-sub">
+	<form id="search-form">
+		<fieldset>
+			<legend class="hidden">검색필드</legend>
+			<label class="hidden">검색분류</label>
 			<div class="form-group">
-				<label>회사명: </label><input type="text" value="" />
+				<label>회사명</label><input type="text" value="" />
 			</div>
 			<div>
 				<input type="submit" value="검색" />
 			</div>
-		</form>
+		</fieldset>
+	</form>
 	</div>
-	
+
 	<div class="notice margin">
 		<h3 class="hidden">공지목록</h3>
 		<table class="table notice-table">
 			<thead>
 				<tr>
-					<td>회사이름</td>
+					<td>번호</td>
+					<td>회사명</td>
+					<td>회사 디테일</td>
 					<td>크기</td>
-					<td>무게(kg 이하)</td>
+					<td>무게</td>
 					<td>동일권역</td>
 					<td>타지역</td>
-					<td>제주(일반)</td>
 				</tr>
 			</thead>
 			<tbody>
+				<template id="manage-row">
 				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
+				</template>
+				<%
+					for(Parcel p:list) {
+				%>
 				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
+					<td><%=p.getPriceCode() %></td>
+					<td><%=p.getCompany()%></td>
+					<td><a href=""><%=p.getComdetail() %></a></td>
+					<td><%=p.getBoxSize() %></td>
+					<td><%=p.getBoxWeigtht() %></td>
+					<td><%=p.getSameCity() %></td>
+					<td><%=p.getOtherCity() %></td>
 				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-				<tr>
-					<td>우체국</td>
-					<td>120</td>
-					<td>2</td>
-					<td>5000원</td>
-					<td>6000원</td>
-					<td>8000원</td>
-				</tr>
-
-
-
+				<%
+					}
+				%>
 			</tbody>
 		</table>
 	</div>
 
 
 
-	<!-- Footer -->
-	<footer id="footer">
+	<!-- Footer --> <footer id="footer">
 		<ul class="copyright">
 			<li><a href="">Manager ver.</a></li>
 			<li>Credits: <a href="http://blog.naver.com/k_seonmin">SM
 					LAB.</a></li>
 		</ul>
-	</footer>
-
-	<!-- Scripts -->
-	<script src="../assets/js/admin.js"></script>
-
+	</footer> <!-- Scripts --> <script src="../assets/js/admin.js"></script>
 </body>
 </html>
