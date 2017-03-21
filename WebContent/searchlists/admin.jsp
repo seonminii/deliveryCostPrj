@@ -5,14 +5,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	int pg = 1;
-	String field = "COMPANY";
-	String query = "";
-	
-	
 	ParcelDao parceldao = new MySQLParcelDao();
-	List<Parcel> list = parceldao.getList(pg,field,query);
-	System.out.println(list.size());
+	List<Parcel> list = parceldao.getList();
 %>
 <!DOCTYPE HTML>
 <html>
