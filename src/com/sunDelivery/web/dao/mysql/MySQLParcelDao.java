@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sunDelivery.web.data.dao.ParcelDao;
-import com.sunDelivery.web.data.entity.Parcel;
+import com.sunDelivery.web.dao.ParcelDao;
+import com.sunDelivery.web.entity.Parcel;
 
 public class MySQLParcelDao implements ParcelDao{
 

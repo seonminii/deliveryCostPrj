@@ -1309,19 +1309,19 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 /* Signup Form */
-#signup-form {
+.signup-form {
 	margin-left: auto;
 	margin-right: auto;
 }
 
-#signup-form input[type="text"], #signup-form input[type="password"],
-	#signup-form input[type="email"], #signup-form input[type="number"] {
+.signup-form input[type="text"], .signup-form input[type="password"],
+	.signup-form input[type="email"], .signup-form input[type="number"] {
 	width: 18em;
 	margin-left: auto;
     margin-right: auto;
 }
 
-#signup-form>* {
+.signup-form>* {
 	margin: 0 0 0 0;
 }
 
@@ -1329,27 +1329,27 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	text-align: center;
 }
 
-#signup-form div {
+.signup-form div {
 	padding-bottom: 30px;
 }
 
 @media screen and (max-width: 480px) {
-	#signup-form {
+	.signup-form {
 		-moz-flex-direction: column;
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
-	#signup-form input[type="type"], #signup-form input[type="password"],
-		#signup-form input[type="email"], #signup-form input[type="number"] {
+	.signup-form input[type="type"], .signup-form input[type="password"],
+		.signup-form input[type="email"], .signup-form input[type="number"] {
 		width: 100%;
 	}
 	
-	#signup-form >* {
+	.signup-form >* {
 		margin: 1.25em 0 0 0;
 	}
 	
-	#signup-form .message {
+	.signup-form .message {
 		bottom: -1.5em;
 		font-size: 0.9em;
 		height: 1em;

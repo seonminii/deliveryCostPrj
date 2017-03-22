@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
+<%
+	String _weight = request.getParameter("weight");
+	System.out.println(_weight);
+	/* int weight = 0;
+	
+	if(_weight != null && _weight.equals(""))
+		weight = Integer.parseInt(_weight); */
+	/* System.out.println("weight: "+weight); */
+%>
 <html>
 <head>
 <meta charset="utf-8" />

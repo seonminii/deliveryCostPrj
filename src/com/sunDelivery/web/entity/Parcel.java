@@ -1,4 +1,4 @@
-package com.sunDelivery.web.data.entity;
+package com.sunDelivery.web.entity;
 
 public class Parcel {
 	private String company;
