@@ -32,7 +32,7 @@
 	</header>
 
 	<!-- Signup Form -->
-	<form id="signup-form" method="post" action="index" class="clearfix">
+	<form id="signup-form" method="post" action="/searchlists/searchlists.jsp" class="clearfix">
 		<p>*무게 단위는 g입니다.</p>
 		<input type="text" name="weight" id="weight" placeholder="무게를 입력하세요" /><br />
 		<p>*크기는 세 변의 합입니다.</p>
