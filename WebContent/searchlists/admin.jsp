@@ -1,6 +1,6 @@
-<%@page import="com.sunDelivery.web.data.entity.Parcel"%>
+<%@page import="com.sunDelivery.web.entity.Parcel"%>
 <%@page import="java.util.List"%>
-<%@page import="com.sunDelivery.web.data.dao.ParcelDao"%>
+<%@page import="com.sunDelivery.web.dao.ParcelDao"%>
 <%@page import="com.sunDelivery.web.dao.mysql.MySQLParcelDao" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
