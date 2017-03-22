@@ -1,8 +1,8 @@
-package com.sunDelivery.web.data.dao;
+package com.sunDelivery.web.dao;
 
 import java.util.List;
 
-import com.sunDelivery.web.data.entity.Parcel;
+import com.sunDelivery.web.entity.Parcel;
 
 public interface ParcelDao {
 	

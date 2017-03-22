@@ -1,22 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("UTF-8");
-	
-	String _weight = request.getParameter("weight");
-	String _size = request.getParameter("size");
-	String location = request.getParameter("location");
-	String[] locations = request.getParameterValues("locations");
-	
-	int weight = 0;
-	int size = 0;
-	
-	if (_weight != null && !_weight.equals("")) // weight에 전달된 값이 있다면
-		weight = Integer.parseInt(_weight);
-	if (_size != null && !_size.equals(""))// size에 전달된 값이 있다면
-		size = Integer.parseInt(_size);
-%>
+
 <!DOCTYPE HTML>
+<%
+	String _weight = request.getParameter("weight");
+	int weight = 0;
+	
+	if(_weight != null && !_weight.equals("")){
+		weight = Integer.parseInt(_weight);
+	}
+	
+	 System.out.println("weight: "+weight); 
+%>
 <html>
 <head>
 <meta charset="utf-8" />
