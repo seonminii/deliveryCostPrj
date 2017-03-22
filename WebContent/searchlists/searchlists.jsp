@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%
+<%
+	request.setCharacterEncoding("UTF-8");
+	
 	String _weight = request.getParameter("weight");
 	String _size = request.getParameter("size");
 	String location = request.getParameter("location");
@@ -13,7 +15,7 @@
 		weight = Integer.parseInt(_weight);
 	if (_size != null && !_size.equals(""))// size에 전달된 값이 있다면
 		size = Integer.parseInt(_size);
-	%>
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -49,6 +51,7 @@
 	</header>
 	<div id="resultmain" style="	margin-top: 100px;">
 		<h1 id="resultpage">편의점택배</h1>
+			<h1><%=weight %></h1>
 	</div>
 	<div id="close-div">
 		<input id="map-button" type="submit" value="가까운 지점 찾기" />

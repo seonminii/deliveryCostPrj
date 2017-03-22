@@ -13,10 +13,18 @@
 		weight = Integer.parseInt(_weight);
 	if (_size != null && !_size.equals(""))// size에 전달된 값이 있다면
 		size = Integer.parseInt(_size);
+	System.out.println("!!");
+	System.out.println(weight);
 %>
 <!DOCTYPE HTML>
 <html>
 <head>
+<script type="text/javascript">
+        function checkFrm() {
+               document.frm1.submit();               //submit()
+        }
+</script>
+
 <meta charset="utf-8" />
 <title>택배비 계산기 | 내 택배비는 얼마?</title>
 <meta name="viewport"
@@ -29,6 +37,7 @@
 	<header id="header" class="clearfix">
 		<h1>택배비 계산기</h1>
 		<p>내 택배비는 얼마?</p>
+		<h1><%=weight %></h1>
 	</header>
 
 	<!-- Signup Form -->
