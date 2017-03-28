@@ -1,3 +1,16 @@
+
+<%@page import="java.util.Arrays"%>
+<%@page import="com.mysql.fabric.xmlrpc.base.Array"%>
+<%@page import="com.sunDelivery.web.calc.CompanyCalc"%>
+<%@page import="com.sunDelivery.web.calc.resultcalc"%>
+<%@page import="com.sunDelivery.web.dao.ParcelDao2"%>
+<%@page import="com.sunDelivery.web.dao.mysql.MySQLParcelDao3"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sunDelivery.web.calc.costcalc"%>
+<%@page import="com.sunDelivery.web.entity.Parcel"%>
+<%@page import="java.util.List"%>
+<%@page import="com.sunDelivery.web.dao.mysql.MySQLParcelDao"%>
+<%@page import="com.sunDelivery.web.dao.ParcelDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -7,10 +20,16 @@
 	String _size = request.getParameter("size");
 	String _location = request.getParameter("location");
 	String _locations= request.getParameter("locations");
+	String _visit = request.getParameter("visit");
+	
 	int weight = 0;
 	int size=0;
+	int cost=0;
+	String company="";
 	String location="empty";
 	String locations="empty";
+	String visit="empty";
+	
 	if(_weight != null && !_weight.equals("")){
 		weight = Integer.parseInt(_weight);
 	}
@@ -23,14 +42,40 @@
 	if(_locations != null && !_locations.equals("")){
 		locations =_locations;
 	}
-	
-	 System.out.println("weight: "+weight); 
+	if(_visit != null && !_visit.equals("")){
+		visit =_visit;
+	}
+	 System.out.println("location: "+location); 
+/* 	 System.out.println("weight: "+weight); 
 	 System.out.println("size: "+size); 
 	 System.out.println("location: "+location); 
 	 System.out.println("locations:"+locations);
+	 System.out.println("visit:"+visit);
+	 */
+	 //-----------입력받은 값들--------------
+	 resultcalc[] result=new resultcalc[7];
+	 CompanyCalc calc= new CompanyCalc();
+	 for(int i=0;i<7;++i){
+	  result[i]= new resultcalc();
+	 }
+	 result[0].setCompany("한진");	 
+ 	 result[1].setCompany("편의점");
+	 result[2].setCompany("우체국");
+	 result[3].setCompany("롯데");
+	 result[4].setCompany("로젠");
+	 result[5].setCompany("대신");
+	 result[6].setCompany("CJ대한통운"); 
+	 //////////////////////////////////택배회사 입력부
+	 for(int i=0;i<7;++i){
+	String tmp=result[i].getCompany();
+	cost=calc.getcost(tmp, weight, size, visit);
+	result[i].setCost(cost);
+	 }
+	 Arrays.sort(result); //가격순으로 정렬
 	 
-	 /////////////////////입력받은 값들
-	
+	 
+	 /////
+	 String url="http://map.daum.net/link/search/"+location+" 편의점택배";
 	
 %>
 <html>
@@ -43,8 +88,10 @@
 <script type="text/javascript">
 	window.addEventListener("load", function(e) {
 		var mapButton = document.querySelector("#map-button");
+		
 		mapButton.onclick = function() {
-			open("http://map.daum.net/link/search/신촌 편의점택배","_blank");
+			
+			open("<%=url%>","_blank");
 			
 		}
 	});
@@ -67,7 +114,8 @@
 	</header>
 	<div id="resultmain" style="	margin-top: 100px;">
 		<h1 id="resultpage">편의점택배</h1>
-			<h1><%=weight %></h1>
+			<h1><%=result[0].getCompany() %> 
+			 <%=result[0].getCost() %>원</h1>
 	</div>
 	<div id="close-div">
 		<input id="map-button" type="submit" value="가까운 지점 찾기" />
@@ -77,112 +125,19 @@
 		<table class="table notice-table">
 			<thead>
 				<tr>
-					<td>번호</td>
-					<td>제목</td>
-					<td>작성자</td>
-					<td>작성일</td>
-					<td>조회수</td>
+					<td>순위</td>
+					<td>회사명</td>
+					<td>가격</td>
 				</tr>
 			</thead>
 			<tbody>
+			<%for(int i=0;i<7;++i){ %>
 				<tr>
-					<td>44</td>
-					<td>서적과 사이트 개편에 대한 안내</td>
-					<td>admin</td>
-					<td>2016-09-21</td>
-					<td>776</td>
+					<td><%=i+1 %></td>		
+					<td><%=result[i].getCompany()%></td>
+					<td><%=result[i].getCost() %></td>
 				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
-				<tr>
-					<td>43</td>
-					<td>리눅스 강의 7월 1일부터 업로드 할 예정입니다.</td>
-					<td>admin</td>
-					<td>2016-06-30</td>
-					<td>854</td>
-				</tr>
+				<%} %>
 			</tbody>
 		</table>
 	</div>

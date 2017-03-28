@@ -28,7 +28,6 @@ public class MySQLParcelDao implements ParcelDao{
 	@Override
 	public List<Parcel> getList(int page, String field, String query) {
 		String sql = "SELECT * FROM PARCEL where binary " + field + " LIKE ? order by cast(PRICE_CODE as unsigned) LIMIT ?,10";
-		//String sql = "SELECT * FROM PARCEL WHERE COMPANY=\"우체국\"AND COMDETAIL=\"우체국방문\" ";
 		List<Parcel> list = new ArrayList<>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

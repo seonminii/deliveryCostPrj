@@ -10,5 +10,4 @@ public interface ParcelDao {
 	List<Parcel> getList(int page);
 	List<Parcel> getList(int page, String field, String query);
 	
-	
 }

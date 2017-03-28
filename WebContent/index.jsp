@@ -14,7 +14,7 @@
 <title>택배비 계산기 | 내 택배비는 얼마?</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/main.css" />ㅂ
 </head>
 <body>
 
