@@ -8,14 +8,6 @@
         function checkFrm() {
                document.frm1.submit();               //submit()
         }
-        window.addEventListener("load", function() {
-        	var loginButton = document.querySelector("#login-button");
-        	
-        	loginButton.onclick = function() {
-    			open("../index.jsp","_self");
-    		}
-        	
-        });
 </script>
 
 <meta charset="utf-8" />
@@ -44,8 +36,9 @@
 			<input type="text" name="location" id="location" placeholder="지역을 입력하세요" /><br />
 	
 			<div>
-				<input type="radio" name="locations" value="same-location" autocomplete="off" checked>동일권역 
-				<input type="radio"	name="locations" value="diff-location" autocomplete="off">타지역
+				<input type="radio" name="locations" value="same-location"
+					autocomplete="off" checked>동일권역 <input type="radio"
+					name="locations" value="diff-location" autocomplete="off">타지역
 				<input type="radio" name="locations" value="jeju-island"
 					autocomplete="off">제주<br />
 			</div>
@@ -64,17 +57,8 @@
 	<footer id="footer">
 		<ul class="copyright">
 	<!-----클릭시 보여주기 ----->
-	<%
-	if(session.getAttribute("id")==null) {
-		%>
-		<li><a id="login-button">Manager login.</a></li>
-	<%
-	} else { 
-		System.out.print(session.getAttribute("id") + " 님 환영합니다");
-	%>
-	<a href=""><%=session.getAttribute("id")%>님 로그아웃</a>
-	<%}%>
 	
+	<li><a href="#" onclick="setVisibility('layer', 'inline');">Manager ver.</a></li>
 	<li>Credits: <a href="http://blog.naver.com/k_seonmin">SM
 			LAB.</a></li>
 		</ul>
@@ -112,9 +96,9 @@
 		      </form>
 		    </div>
 
-		    <!-- <div class="login-help">
+		    <div class="login-help">
 		      <p>Forgot your password? <a href="index.jsp">Click here to reset it</a>.</p>
-		    </div> -->
+		    </div>
 		  </section>
 	  </div>
 	 <span class="blank"></span>

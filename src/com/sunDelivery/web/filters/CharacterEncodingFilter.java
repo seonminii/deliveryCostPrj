@@ -9,6 +9,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
+import org.apache.tomcat.util.file.ConfigFileLoader;
+
 @WebFilter("/*")
 public class CharacterEncodingFilter implements Filter {
 	public void destroy() {
@@ -16,12 +18,13 @@ public class CharacterEncodingFilter implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		System.out.println("½ÇÇà");
 		request.setCharacterEncoding("UTF-8");
 		chain.doFilter(request, response);
 		
 		
 	}
-
+	
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
 }
