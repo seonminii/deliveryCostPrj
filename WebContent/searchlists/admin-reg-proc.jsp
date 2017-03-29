@@ -11,9 +11,6 @@
 	String _samc = request.getParameter("samc");
 	String _othc = request.getParameter("othc");
 	
-	comp = new String(comp.getBytes("8859_1"), "UTF-8");
-	compdet = new String(compdet.getBytes("8859_1"), "UTF-8");	
-	
 	int si=0;
 	int wei=0;
 	int samc=0;
