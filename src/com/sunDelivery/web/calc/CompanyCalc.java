@@ -8,7 +8,7 @@ import com.sunDelivery.web.entity.Parcel;
 
 public class CompanyCalc {
 	private int cost=0;
-	public int getcost(String company, int weight, int size, String visit){
+	public int getcost(String company, int weight, int size, String visit, String locations){
 	
   	ParcelDao2 parceldao = new MySQLParcelDao3(); 	
 	 	List<Parcel> list = parceldao.getList(company, visit); 
@@ -31,8 +31,13 @@ public class CompanyCalc {
 		for(int j=0; j<i;++j){
 			if(weight<=calclist[j].getBoxWeigtht() && size<=calclist[j].getBoxSize())
 				{
-				result[resultnum]= new resultcalc(); 
+				result[resultnum]= new resultcalc();
+				if(locations.equals("same-location")){
 				cost=calclist[j].getSameCity();
+				}
+				else{
+					cost=calclist[j].getOtherCity();
+				}
 				company=calclist[j].getCompany();
 				result[resultnum].setCost(cost);
 				result[resultnum].setCompany(company);

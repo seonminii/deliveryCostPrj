@@ -45,8 +45,9 @@
 	if(_visit != null && !_visit.equals("")){
 		visit =_visit;
 	}
-	 System.out.println("location: "+location); 
-/* 	 System.out.println("weight: "+weight); 
+	 System.out.println("locations:"+locations);
+/*	 System.out.println("location: "+location); 
+	 System.out.println("weight: "+weight); 
 	 System.out.println("size: "+size); 
 	 System.out.println("location: "+location); 
 	 System.out.println("locations:"+locations);
@@ -58,24 +59,28 @@
 	 for(int i=0;i<7;++i){
 	  result[i]= new resultcalc();
 	 }
-	 result[0].setCompany("한진");	 
- 	 result[1].setCompany("편의점");
-	 result[2].setCompany("우체국");
-	 result[3].setCompany("롯데");
-	 result[4].setCompany("로젠");
-	 result[5].setCompany("대신");
-	 result[6].setCompany("CJ대한통운"); 
-	 //////////////////////////////////택배회사 입력부
-	 for(int i=0;i<7;++i){
-	String tmp=result[i].getCompany();
-	cost=calc.getcost(tmp, weight, size, visit);
-	result[i].setCost(cost);
+	 ParcelDao2 parceldao = new MySQLParcelDao3(); 	
+	 List<Parcel> list = parceldao.getcompany();
+		for(Parcel p:list) { //회사 이름가져오는 리스트
+			System.out.print(p.getCompany()+" ");
+			System.out.println();
+		}
+	
+		for(int i=0;i<list.size();++i){//계산하기 위한 객체에 함수대입
+			company=list.get(i).getCompany();
+			result[i].setCompany(company);
+		}
+	 	for(int i=0;i<list.size();++i){ //계산과정
+		String tmp=result[i].getCompany();
+		cost=calc.getcost(tmp, weight, size, visit, locations);
+	 	if(cost==0) cost=99999;
+		result[i].setCost(cost);
 	 }
-	 Arrays.sort(result); //가격순으로 정렬
-	 
-	 
+		Arrays.sort(result); //가격순으로 정렬 
+	
+	 	
 	 /////
-	 String url="http://map.daum.net/link/search/"+location+" 편의점택배";
+	 String url="http://map.daum.net/link/search/"+location+" "+result[0].getCompany();
 	
 %>
 <html>
@@ -113,9 +118,13 @@
 		</div>
 	</header>
 	<div id="resultmain" style="	margin-top: 100px;">
-		<h1 id="resultpage">편의점택배</h1>
+		<h1 id="resultpage">최저가 택배</h1>
+		<%if(result[0].getCost()==99999){%>
+			<h1>규격초과</h1>
+		<%}else{ %>
 			<h1><%=result[0].getCompany() %> 
 			 <%=result[0].getCost() %>원</h1>
+			 <%} %>
 	</div>
 	<div id="close-div">
 		<input id="map-button" type="submit" value="가까운 지점 찾기" />
@@ -131,11 +140,15 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%for(int i=0;i<7;++i){ %>
+			<%for(int i=0;i<list.size();++i){ %>
 				<tr>
 					<td><%=i+1 %></td>		
 					<td><%=result[i].getCompany()%></td>
+					<%if(result[i].getCost()==99999){%>
+						<td>규격초과</td>
+					<%}else{ %>
 					<td><%=result[i].getCost() %></td>
+					<%} %>
 				</tr>
 				<%} %>
 			</tbody>
