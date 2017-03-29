@@ -112,18 +112,19 @@ return;
 	<footer id="footer">
 		<ul class="copyright">
 			<%
-	if(session.getAttribute("id")==null) {
-		%>
-		<li><a href="login.jsp">Manager login.</a></li>
-	<%
-	} else { 
-		System.out.print(session.getAttribute("id") + " 님 환영합니다");
-	%>
-	<li><a href="logout.jsp"><%=session.getAttribute("id")%>님 로그아웃</a></li>
-	<li><a href="searchlists/admin.jsp">관리자 페이지</a></li>
-	<%}%>
-	
-	<li><a id="cr">Credits:</a> <a href="http://blog.naver.com/k_seonmin">SM
+				if (session.getAttribute("id") == null) {
+			%>
+			<li><a href="../login.jsp">Manager login.</a></li>
+			<%
+				} else {
+					System.out.print(session.getAttribute("id") + " 님 환영합니다");
+			%>
+			<li><a href="../logout.jsp"><%=session.getAttribute("id")%>님
+					로그아웃</a></li>
+			<li><a href="searchlists/admin.jsp">관리자 페이지</a></li>
+			<%}%>
+
+			<li><a id="cr">Credits:</a> <a href="http://blog.naver.com/k_seonmin">SM
 			LAB.</a></li>
 		</ul>
 	</footer>
