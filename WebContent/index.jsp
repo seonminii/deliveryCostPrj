@@ -44,9 +44,8 @@
 			<input type="text" name="location" id="location" placeholder="지역을 입력하세요" /><br />
 	
 			<div>
-				<input type="radio" name="locations" value="same-location"
-					autocomplete="off" checked>동일권역 <input type="radio"
-					name="locations" value="diff-location" autocomplete="off">타지역
+				<input type="radio" name="locations" value="same-location" autocomplete="off" checked>동일권역 
+				<input type="radio"	name="locations" value="diff-location" autocomplete="off">타지역
 				<input type="radio" name="locations" value="jeju-island"
 					autocomplete="off">제주<br />
 			</div>

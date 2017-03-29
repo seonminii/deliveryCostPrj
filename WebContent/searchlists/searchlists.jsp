@@ -4,13 +4,34 @@
 <!DOCTYPE HTML>
 <%
 	String _weight = request.getParameter("weight");
+	String _size = request.getParameter("size");
+	String _location = request.getParameter("location");
+	String _locations= request.getParameter("locations");
 	int weight = 0;
-	
+	int size=0;
+	String location="empty";
+	String locations="empty";
 	if(_weight != null && !_weight.equals("")){
 		weight = Integer.parseInt(_weight);
 	}
+	if(_size != null && !_size.equals("")){
+		size = Integer.parseInt(_size);
+	}
+	if(_location != null && !_location.equals("")){
+		location =_location;
+	}
+	if(_locations != null && !_locations.equals("")){
+		locations =_locations;
+	}
 	
 	 System.out.println("weight: "+weight); 
+	 System.out.println("size: "+size); 
+	 System.out.println("location: "+location); 
+	 System.out.println("locations:"+locations);
+	 
+	 /////////////////////입력받은 값들
+	
+	
 %>
 <html>
 <head>
