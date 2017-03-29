@@ -22,7 +22,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
 	text-align: center;
 }
 
@@ -30,10 +29,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	display: none;
 }
 
-.margin{
-   margin-top:50px;   
+.write {
+    text-align: right;
 }
 
+.write a {
+    color: #1DE9B6;
+    font-weight: bold;
+    text-decoration: none;
+}
 
 .clearfix:after {
     visibility: hidden;
@@ -606,8 +610,29 @@ ul {
 	padding-left: 1em;
 }
 
+.pagelist {
+	
+	margin: 0 0 2em 0;
+	padding-left: 1em;
+	list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.pagelist li {
+	margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+}
+
+.pagelist li a {
+	color: #fff;
+}
+
 ul li {
 	padding-left: 0.5em;
+	list-style:none;
 }
 
 ul.icons {
@@ -1490,7 +1515,8 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	margin-right: 10px;
 }
 .table thead td{
-  /*  background: #f5f5f5 url(../../images/bg-title-sp.png) no-repeat left center; */
+  background-color: lightslategrey;
+  font-weight: bold; 
 }
 
 .table thead td:first-child {
@@ -1500,17 +1526,24 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 .notice-table{
    width: 800px;
    border: 1px solid #bcbcbc;
-   th, td {
-    border: 1px solid #bcbcbc;
-  }
 }
-.notice-table tbody td {
+
+th, td {
+    border: 1px solid #bcbcbc;
+}
+
+.notice-table tbody tr>td:first-child {
 	margin: auto;
 	border: 1px solid #bcbcbc;
+	font-weight: bold;
+}
+
+.notice-table tbody td a {
+	color: #B2DFDB;
 }
 
 .notice-table tbody td:nth-child(2) {
-	//text-align: left;
-	//text-indent: 5px;
+	/* text-align: left;
+	text-indent: 5px; */
 	
 }
