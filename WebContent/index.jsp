@@ -38,7 +38,8 @@
 			
 			<p>*무게 단위는 g입니다.</p>
 			<input type="text" name="weight" id="weight" placeholder="무게를 입력하세요"/><br />
-			<p>*크기는 세 변의 합입니다.</p>
+			<p>*크기: 세 변의 합<br>
+			(단, 편의점은 크기가 상관없으므로 편의점 검색은 0을 입력해주세요)</p>
 			<input type="text" name="size" id="size" placeholder="크기를 입력하세요" /><br />
 			<p>*현재 위치를 입력해주세요.(ex.신촌, 강남)</p>
 			<input type="text" name="location" id="location" placeholder="지역을 입력하세요" /><br />
@@ -67,15 +68,16 @@
 	<%
 	if(session.getAttribute("id")==null) {
 		%>
-		<li><a id="login-button">Manager login.</a></li>
+		<li><a href="login.jsp">Manager login.</a></li>
 	<%
 	} else { 
 		System.out.print(session.getAttribute("id") + " 님 환영합니다");
 	%>
-	<a href=""><%=session.getAttribute("id")%>님 로그아웃</a>
+	<li><a href="logout.jsp"><%=session.getAttribute("id")%>님 로그아웃</a></li>
+	<li><a href="searchlists/admin.jsp">관리자 페이지</a></li>
 	<%}%>
 	
-	<li>Credits: <a href="http://blog.naver.com/k_seonmin">SM
+	<li><a id="cr">Credits:</a> <a href="http://blog.naver.com/k_seonmin">SM
 			LAB.</a></li>
 		</ul>
 	</footer>
@@ -90,35 +92,5 @@
 			document.getElementById(id).style.display = visibility;
 		}
 	</script>
-	
-	<!-- layer -->
-	<div id="layer">
-	  <div class="content">
-	  <div id="close" onclick="setVisibility('layer','none');" style="cursor: pointer;"><h3>x</h3></div>
-		<h2>관리자 로그인</h2>
-		<!-- 안보이게 -->
-		 <section class="container">
-		    <div class="login">
-		       <form method="post" action="index-proc.jsp">
-		        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-		        <p><input type="password" name="password" value="" placeholder="Password"></p>
-		        <p class="remember_me">
-		          <!-- <label>
-		            <input type="checkbox" name="remember_me" id="remember_me">
-		            Remember me on this computer
-		          </label> -->
-		        </p>
-		        <p class="submit"><input type="submit" name="commit" value="Login"></p>
-		      </form>
-		    </div>
-
-		    <!-- <div class="login-help">
-		      <p>Forgot your password? <a href="index.jsp">Click here to reset it</a>.</p>
-		    </div> -->
-		  </section>
-	  </div>
-	 <span class="blank"></span>
-	</div>
-
 </body>
 </html>

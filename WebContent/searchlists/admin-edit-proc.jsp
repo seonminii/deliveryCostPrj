@@ -13,9 +13,6 @@
 	String _othc = request.getParameter("othc");
 	String _pg = request.getParameter("pg");
 	String _q = request.getParameter("query");
-	
-	comp = new String(comp.getBytes("8859_1"), "UTF-8");
-	compdet = new String(compdet.getBytes("8859_1"), "UTF-8");
 		
 	String number = "";
 	int si=1;

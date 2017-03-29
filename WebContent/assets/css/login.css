@@ -1289,8 +1289,16 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	line-height: normal;
 }
 
-#header a {
-	color: inherit;
+#header div {
+	color: #B2DFDB;
+    font-weight: bold;
+    font-size: larger;
+    cursor: default;
+}
+
+div#idpw {
+    color: chartreuse;
+    font-weight: bolder;
 }
 
 @media screen and (max-width: 736px) {
@@ -1401,10 +1409,6 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	color: inherit;
 }
 
-#footer .copyright #cr {
-	cursor: default;
-}
-
 #footer:hover {
 	opacity: 1;
 }
@@ -1487,4 +1491,8 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 position: relative;
 	top: 0;
 	left: 0;
+}
+
+#ma {
+	color: #0097A7;
 }
