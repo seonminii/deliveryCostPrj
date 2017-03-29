@@ -45,8 +45,8 @@
 	if(_visit != null && !_visit.equals("")){
 		visit =_visit;
 	}
-	 System.out.println("locations:"+locations);
-/*	 System.out.println("location: "+location); 
+/*	 System.out.println("locations:"+locations);
+	 System.out.println("location: "+location); 
 	 System.out.println("weight: "+weight); 
 	 System.out.println("size: "+size); 
 	 System.out.println("location: "+location); 
@@ -62,13 +62,14 @@
 	 ParcelDao2 parceldao = new MySQLParcelDao3(); 	
 	 List<Parcel> list = parceldao.getcompany();
 		for(Parcel p:list) { //회사 이름가져오는 리스트
-			System.out.print(p.getCompany()+" ");
-			System.out.println();
+	System.out.print(p.getCompany()+" ");
+			System.out.println(); 
 		}
 	
 		for(int i=0;i<list.size();++i){//계산하기 위한 객체에 함수대입
 			company=list.get(i).getCompany();
 			result[i].setCompany(company);
+			System.out.println("company: "+result[i].getCompany());
 		}
 	 	for(int i=0;i<list.size();++i){ //계산과정
 		String tmp=result[i].getCompany();
@@ -78,10 +79,15 @@
 	 }
 		Arrays.sort(result); //가격순으로 정렬 
 	
+
 	 	
 	 /////
-	 String url="http://map.daum.net/link/search/"+location+" "+result[0].getCompany();
-	
+	 //String url="http://map.daum.net/link/search/"+location+" "+result[0].getCompany();
+	String url="http://map.daum.net/link/search/"+location+" "+result[0].getCompany();
+	if(result[0].getCompany().equals("편의점")){
+		url=url+" 택배";
+	}
+		
 %>
 <html>
 <head>

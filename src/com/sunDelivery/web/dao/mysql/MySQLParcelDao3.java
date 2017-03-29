@@ -17,14 +17,15 @@ public class MySQLParcelDao3 implements ParcelDao2{
 	public List<Parcel> getList(String company, String visit) {
 		String sql="";
 		if(visit.equals("visit")&&company.equals("우체국")){
-			sql = "SELECT * FROM PARCEL WHERE COMPANY=\"우체국\"AND COMDETAIL=\"우체국방문\" ";
+
+			sql = "SELECT * FROM PARCEL WHERE COMPANY=\"우체국\"AND COMDETAIL=\"우체국방문\" "+"order by BOX_WEIGHT";
 		}
 		else if(company.equals("우체국")){
-	
-			sql = "SELECT * FROM PARCEL WHERE COMPANY=\"우체국\"AND COMDETAIL=\"우체국일반\" ";
+		
+			sql = "SELECT * FROM PARCEL WHERE COMPANY=\"우체국\"AND COMDETAIL=\"우체국일반\" "+"order by BOX_WEIGHT";
 		}
 		else {
-			sql = "SELECT * FROM PARCEL WHERE COMPANY="+"\""+company+"\"";
+			sql = "SELECT * FROM PARCEL WHERE COMPANY="+"\""+company+"\""+"order by BOX_WEIGHT";
 			}
 		List<Parcel> list = new ArrayList<>();
 		try {
